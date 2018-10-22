@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/colorPrimary">
+
+            <ImageButton
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_centerVertical="true"
+                android:background="#00000000"
+                android:layout_marginStart="5dp"
+                android:src="@drawable/enter_left"
+                android:onClick="back"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:textSize="18sp"
+                android:textColor="@color/white"
+                android:text="兑换服务"/>
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/item_limited"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#333"
+            android:background="#fff8f6"
+            android:padding="10dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp">
+
+            <TextView
+                android:layout_width="92dp"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:layout_gravity="center_vertical"
+                android:textColor="#262626"
+                android:text="享受人:"/>
+
+            <EditText
+                android:id="@+id/benefit_people"
+                android:layout_width="match_parent"
+                android:layout_height="36dp"
+                android:background="@drawable/fillet_style4"
+                android:paddingLeft="8dp"
+                android:textSize="16sp"
+                android:singleLine="true" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20sp"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp">
+
+            <TextView
+                android:layout_width="92dp"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:layout_gravity="center_vertical"
+                android:textColor="#262626"
+                android:text="手机号码:"/>
+
+            <EditText
+                android:id="@+id/identity"
+                android:layout_width="match_parent"
+                android:layout_height="36dp"
+                android:background="@drawable/fillet_style4"
+                android:paddingLeft="8dp"
+                android:textSize="16sp"
+                android:singleLine="true" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp">
+
+            <TextView
+                android:layout_width="92dp"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:layout_gravity="center_vertical"
+                android:textColor="#262626"
+                android:text="详细地址:"/>
+
+            <EditText
+                android:id="@+id/address"
+                android:layout_width="match_parent"
+                android:layout_height="36dp"
+                android:background="@drawable/fillet_style4"
+                android:paddingLeft="8dp"
+                android:textSize="16sp"
+                android:singleLine="true" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp">
+
+            <TextView
+                android:layout_width="92dp"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:layout_gravity="center_vertical"
+                android:textColor="#262626"
+                android:text="服务时间:"/>
+
+            <EditText
+                android:id="@+id/time"
+                android:layout_width="match_parent"
+                android:layout_height="36dp"
+                android:background="@drawable/fillet_style4"
+                android:paddingLeft="8dp"
+                android:textSize="16sp"
+                android:singleLine="true" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/fillet_style2"
+            android:textColor="@color/white"
+            android:layout_marginTop="30dp"
+            android:textSize="20sp"
+            android:text="提交"
+            android:onClick="submit"/>
+
+    </LinearLayout>
+
+</android.support.v4.widget.NestedScrollView>

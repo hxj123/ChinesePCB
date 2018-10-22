@@ -15,6 +15,7 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.chad.library.adapter.base.entity.MultiItemEntity;
 import com.example.administrator.myapplication.R;
+import com.example.administrator.myapplication.personCenter.ExchangeService;
 import com.example.administrator.myapplication.personCenter.ItemReview;
 import com.zhy.view.flowlayout.FlowLayout;
 import com.zhy.view.flowlayout.TagAdapter;
@@ -92,10 +93,24 @@ public class MyProgramList extends AppCompatActivity {
             }
         });
 
+        myRecycleViewAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+                Intent intent = new Intent(MyProgramList.this, ProgramInfo.class);
+                startActivity(intent);
+            }
+        });
+
         myRecycleViewAdapter.setOnItemChildClickListener(new BaseQuickAdapter.OnItemChildClickListener() {
             @Override
             public void onItemChildClick(BaseQuickAdapter adapter, View view, int position) {
                 if(view.getId() == R.id.tv_exchange){
+                    Intent intent = new Intent(MyProgramList.this, ExchangeService.class);
+                    startActivity(intent);
+                }else if(view.getId() == R.id.tv_sell){
+                    Intent intent = new Intent(MyProgramList.this, ItemReview.class);
+                    startActivity(intent);
+                }else if(view.getId() == R.id.tv_review){
                     Intent intent = new Intent(MyProgramList.this, ItemReview.class);
                     startActivity(intent);
                 }
@@ -158,6 +173,9 @@ public class MyProgramList extends AppCompatActivity {
         protected void convert(BaseViewHolder helper, MultipleItem item) {
             if(item.getItemType() == MultipleItem.CANEXCHANGE){
                 helper.addOnClickListener(R.id.tv_exchange);
+                helper.addOnClickListener(R.id.tv_sell);
+            }else if(item.getItemType() == MultipleItem.EXCHANGED){
+                helper.addOnClickListener(R.id.tv_review);
             }
         }
     }
