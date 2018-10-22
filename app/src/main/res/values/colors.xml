@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#218868</color>
+    <color name="colorPrimaryDark">#1a6d53</color>
+    <color name="colorAccent">#218868</color>
+    <color name="navigation_selected">#218868</color>
+    <color name="navigation_unselected">#9f9f9f</color>
+    <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
+    <color name="gray">#ebebeb</color>
+    <color name="line_color">#d0d0d0</color>
+</resources>

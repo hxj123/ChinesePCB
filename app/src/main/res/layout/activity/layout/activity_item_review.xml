@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/colorPrimary">
+
+        <ImageButton
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:background="#00000000"
+            android:layout_marginStart="5dp"
+            app:srcCompat="@drawable/enter_left"
+            android:onClick="back"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:text="评论"/>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="评分:"
+            android:layout_marginRight="10dp"
+            android:textColor="#2f2f2f"
+            android:layout_gravity="center_vertical"
+            android:textSize="18sp"/>
+
+        <com.iarcuschin.simpleratingbar.SimpleRatingBar
+            android:id="@+id/ratingbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srb_starSize="40dp"
+            app:srb_numberOfStars="5"
+            app:srb_rating="1"
+            app:srb_stepSize="1"
+            app:srb_drawBorderEnabled="false"
+            app:srb_starBackgroundColor="#d8d8d8"
+            app:srb_fillColor="#f2de2c" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginBottom="12dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="评论内容:"
+            android:layout_marginRight="10dp"
+            android:textColor="#2f2f2f"
+            android:layout_gravity="center_vertical"
+            android:textSize="18sp"/>
+
+        <EditText
+            android:id="@+id/et_content"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="15dp"
+            android:gravity="top"
+            android:background="@drawable/fillet_style3"
+            android:inputType="textMultiLine"
+            android:padding="5dp"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:text="注：评论只能提交一次，并且提交后不可修改和删除，若您的评论不符实，将会对您的信用星级造成影响，请对您慎重填写评论"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/fillet_style3"
+        android:layout_marginTop="10dp"
+        android:textColor="#636363"
+        android:textSize="16sp"
+        style="?android:attr/borderlessButtonStyle"
+        android:text="发布评论"
+        android:onClick="submit"/>
+
+</LinearLayout>
