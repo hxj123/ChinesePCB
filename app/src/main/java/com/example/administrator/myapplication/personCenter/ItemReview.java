@@ -35,6 +35,10 @@ public class ItemReview extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_item_review);
+        if (getSupportActionBar() != null){
+            getSupportActionBar().hide();
+        }
+
         srating = findViewById(R.id.ratingbar);
         srating.setOnRatingBarChangeListener(new SimpleRatingBar.OnRatingBarChangeListener() {
             @Override

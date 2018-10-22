@@ -56,6 +56,7 @@
                 app:srb_starBackgroundColor="#d8d8d8"
                 app:srb_starSize="14dp"
                 app:srb_starsSeparation="0dp"
+                app:srb_isIndicator="false"
                 app:srb_stepSize="1" />
 
         </LinearLayout>

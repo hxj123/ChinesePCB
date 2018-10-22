@@ -15,7 +15,7 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.chad.library.adapter.base.entity.MultiItemEntity;
 import com.example.administrator.myapplication.R;
-import com.example.administrator.myapplication.square.UserProductListFragment;
+import com.example.administrator.myapplication.personCenter.ItemReview;
 import com.zhy.view.flowlayout.FlowLayout;
 import com.zhy.view.flowlayout.TagAdapter;
 import com.zhy.view.flowlayout.TagFlowLayout;
@@ -92,6 +92,16 @@ public class MyProgramList extends AppCompatActivity {
             }
         });
 
+        myRecycleViewAdapter.setOnItemChildClickListener(new BaseQuickAdapter.OnItemChildClickListener() {
+            @Override
+            public void onItemChildClick(BaseQuickAdapter adapter, View view, int position) {
+                if(view.getId() == R.id.tv_exchange){
+                    Intent intent = new Intent(MyProgramList.this, ItemReview.class);
+                    startActivity(intent);
+                }
+            }
+        });
+
         datas.add(new MultipleItem(MultipleItem.RAISING,new JSONObject()));
         datas.add(new MultipleItem(MultipleItem.BUILDING,new JSONObject()));
         datas.add(new MultipleItem(MultipleItem.CANEXCHANGE,new JSONObject()));
@@ -147,12 +157,7 @@ public class MyProgramList extends AppCompatActivity {
         @Override
         protected void convert(BaseViewHolder helper, MultipleItem item) {
             if(item.getItemType() == MultipleItem.CANEXCHANGE){
-                helper.setOnClickListener(R.id.tv_review, new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-
-                    }
-                });
+                helper.addOnClickListener(R.id.tv_exchange);
             }
         }
     }
@@ -163,9 +168,7 @@ public class MyProgramList extends AppCompatActivity {
         @Override
         public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
             super.getItemOffsets(outRect, view, parent, state);
-            if (parent.getChildAdapterPosition(view) != 0) {
                 outRect.top = mSpace;
-            }
         }
 
         SpaceItemDecoration(int space) {
