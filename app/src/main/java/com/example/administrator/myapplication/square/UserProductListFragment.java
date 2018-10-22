@@ -1,6 +1,8 @@
 package com.example.administrator.myapplication.square;
 
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Rect;
 import android.os.Bundle;
@@ -10,9 +12,11 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.InputType;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
@@ -82,9 +86,29 @@ public class UserProductListFragment extends Fragment {
         myRecycleViewAdapter.setOnItemChildClickListener(new BaseQuickAdapter.OnItemChildClickListener() {
             @Override
             public void onItemChildClick(BaseQuickAdapter adapter, View view, int position) {
-                if(view.getId()==R.id.user_program){
+                if(view.getId() == R.id.user_program){
                     Intent intent = new Intent(view.getContext(), ProgramInfo.class);
                     startActivity(intent);
+                }else if(view.getId() == R.id.buy){
+                    View v = getLayoutInflater().inflate(R.layout.dialog_layout,null);
+                    final EditText editText = v.findViewById(R.id.et_content);
+                    editText.setHint("请输入密码");
+                    editText.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                    AlertDialog alertDialog = new AlertDialog.Builder(view.getContext())
+                            .setTitle("输入密码")
+                            .setView(v)
+                            .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    System.out.println(editText.getText());
+                                }
+                            })
+                            .setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                }
+                            }).create();
+                    alertDialog.show();
                 }
             }
         });
@@ -106,7 +130,8 @@ public class UserProductListFragment extends Fragment {
 
         @Override
         protected void convert(BaseViewHolder helper, JSONObject item) {
-            helper.addOnClickListener(R.id.user_program);
+            helper.addOnClickListener(R.id.user_program)
+                .addOnClickListener(R.id.buy);
         }
     }
 

@@ -1,5 +1,6 @@
 package com.example.administrator.myapplication.personCenter;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.BitmapFactory;
@@ -13,6 +14,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -99,54 +101,41 @@ public class UserInfo extends AppCompatActivity {
     }
 
     public void changeInfo(final int id) {
-        final View view = getLayoutInflater().inflate(R.layout.dialog_layout,null);
-        final EditText editName= view.findViewById(R.id.et_name);
-        Button cancel = view.findViewById(R.id.bt_cancel);
-        cancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                alertDialog.dismiss();
-            }
-        });
-        Button confirm = view.findViewById(R.id.bt_confirm);
-        confirm.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(editName.length() == 0)
-                    alertDialog.dismiss();
-                else {
-                    TextView textView = null;
-                    switch (id){
-                        case R.id.user_email_layout:
-                            textView = findViewById(R.id.user_email);
-                            break;
-                        case R.id.user_city_layout:
-                            textView = findViewById(R.id.user_city);
-                            break;
-                        case R.id.user_address_layout:
-                            textView = findViewById(R.id.user_address);
-                            break;
-                        case R.id.user_phone_layout:
-                            textView = findViewById(R.id.user_phone);
-                            break;
-                        case R.id.user_money_layout:
-                            textView = findViewById(R.id.user_money);
-                            break;
+        View view = getLayoutInflater().inflate(R.layout.dialog_layout,null);
+        final EditText editText = view.findViewById(R.id.et_content);
+        AlertDialog alertDialog = new AlertDialog.Builder(this)
+                .setTitle("输入密码")
+                .setView(view)
+                .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        TextView textView = null;
+                        switch (id){
+                            case R.id.user_email_layout:
+                                textView = findViewById(R.id.user_email);
+                                break;
+                            case R.id.user_city_layout:
+                                textView = findViewById(R.id.user_city);
+                                break;
+                            case R.id.user_address_layout:
+                                textView = findViewById(R.id.user_address);
+                                break;
+                            case R.id.user_phone_layout:
+                                textView = findViewById(R.id.user_phone);
+                                break;
+                            case R.id.user_money_layout:
+                                textView = findViewById(R.id.user_money);
+                                break;
+                        }
+                        if(textView != null)
+                            textView.setText(editText.getText().toString());
                     }
-                    if(textView != null)
-                        textView.setText(editName.getText().toString());
-                    alertDialog.dismiss();
-                }
-            }
-        });
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        alertDialog = builder.create();
-        alertDialog.setView(view);
+                })
+                .setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                    }
+                }).create();
         alertDialog.show();
-        DisplayMetrics dm = new DisplayMetrics();
-        getWindowManager().getDefaultDisplay().getMetrics(dm);
-        android.view.WindowManager.LayoutParams p = alertDialog.getWindow().getAttributes();
-        p.height = (int)(dm.heightPixels*0.275);
-        alertDialog.getWindow().setAttributes(p);
     }
 }

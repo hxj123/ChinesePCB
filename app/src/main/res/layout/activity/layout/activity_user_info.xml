@@ -138,8 +138,7 @@
             android:textSize="19sp"
             android:layout_marginStart="20dp"
             android:textColor="@color/black"
-            android:text="邮箱"
-            />
+            android:text="邮箱" />
 
         <RelativeLayout
             android:layout_width="wrap_content"
