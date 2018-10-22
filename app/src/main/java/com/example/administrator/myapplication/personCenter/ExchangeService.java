@@ -27,6 +27,10 @@ public class ExchangeService extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (getSupportActionBar() != null){
+            getSupportActionBar().hide();
+        }
+
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
         itemId = getIntent().getStringExtra("itemId");
         goodId = getIntent().getStringExtra("goodId");

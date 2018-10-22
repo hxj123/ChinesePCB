@@ -33,8 +33,9 @@
         <activity android:name=".square.CreateArticle" />
         <activity android:name=".home.MyProgramList" />
         <activity android:name=".personCenter.ItemReview" />
-        <activity android:name=".personCenter.ExchangeService" />
-        <activity android:name=".square.SellProgram"></activity>
+        <activity android:name=".personCenter.ExchangeService"
+            android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:name=".square.SellProgram"/>
     </application>
 
 </manifest>

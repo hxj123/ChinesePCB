@@ -13,10 +13,12 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.example.administrator.myapplication.R;
+import com.example.administrator.myapplication.home.ProgramInfo;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener;
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
@@ -77,6 +79,16 @@ public class UserProductListFragment extends Fragment {
             }
         });
 
+        myRecycleViewAdapter.setOnItemChildClickListener(new BaseQuickAdapter.OnItemChildClickListener() {
+            @Override
+            public void onItemChildClick(BaseQuickAdapter adapter, View view, int position) {
+                if(view.getId()==R.id.user_program){
+                    Intent intent = new Intent(view.getContext(), ProgramInfo.class);
+                    startActivity(intent);
+                }
+            }
+        });
+
         datas.add(new JSONObject());
         datas.add(new JSONObject());
         datas.add(new JSONObject());
@@ -94,7 +106,7 @@ public class UserProductListFragment extends Fragment {
 
         @Override
         protected void convert(BaseViewHolder helper, JSONObject item) {
-
+            helper.addOnClickListener(R.id.user_program);
         }
     }
 

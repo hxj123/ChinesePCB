@@ -55,9 +55,9 @@
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginTop="5dp"
-        android:layout_marginBottom="15dp"
+        android:layout_marginBottom="10dp"
         android:padding="12dp"
-        android:background="#f4f4f4">
+        android:background="#f1f1f1">
 
         <ImageView
             android:id="@+id/product_image"
@@ -76,6 +76,7 @@
             android:orientation="vertical">
 
             <LinearLayout
+                android:id="@+id/user_program"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
 
@@ -104,7 +105,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="购买金额："
+                    android:text="筹资金额："
                     android:textColor="@color/black"
                     android:textSize="15sp" />
 
@@ -126,7 +127,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="出售金额："
+                    android:text="购买金额："
                     android:textColor="@color/black"
                     android:textSize="15sp" />
 
@@ -134,13 +135,47 @@
                     android:id="@+id/product_current_money"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="9999.99"
+                    android:text="999.99"
                     android:textColor="@color/black"
                     android:textSize="15sp" />
 
             </LinearLayout>
 
         </LinearLayout>
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#f1f1f1"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:layout_marginStart="20dp"
+            android:textColor="@color/black"
+            android:layout_centerVertical="true"
+            android:text="￥299"/>
+
+        <Button
+            android:id="@+id/submit"
+            android:layout_width="65dp"
+            android:layout_height="32dp"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/fillet_style2"
+            android:textColor="@color/white"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="20dp"
+            android:layout_centerVertical="true"
+            android:textSize="15sp"
+            android:text="购买" />
 
     </RelativeLayout>
 

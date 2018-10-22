@@ -17,6 +17,7 @@ import com.chad.library.adapter.base.entity.MultiItemEntity;
 import com.example.administrator.myapplication.R;
 import com.example.administrator.myapplication.personCenter.ExchangeService;
 import com.example.administrator.myapplication.personCenter.ItemReview;
+import com.example.administrator.myapplication.square.SellProgram;
 import com.zhy.view.flowlayout.FlowLayout;
 import com.zhy.view.flowlayout.TagAdapter;
 import com.zhy.view.flowlayout.TagFlowLayout;
@@ -108,7 +109,7 @@ public class MyProgramList extends AppCompatActivity {
                     Intent intent = new Intent(MyProgramList.this, ExchangeService.class);
                     startActivity(intent);
                 }else if(view.getId() == R.id.tv_sell){
-                    Intent intent = new Intent(MyProgramList.this, ItemReview.class);
+                    Intent intent = new Intent(MyProgramList.this, SellProgram.class);
                     startActivity(intent);
                 }else if(view.getId() == R.id.tv_review){
                     Intent intent = new Intent(MyProgramList.this, ItemReview.class);
