@@ -4,6 +4,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -23,7 +24,6 @@ import com.example.administrator.myapplication.R;
 import java.util.ArrayList;
 
 public class UserInfo extends AppCompatActivity {
-    private AlertDialog alertDialog;
     private ImageView avatar;
     private RelativeLayout avatar_layout, name_layout, email_layout,
             city_layout, address_layout, phone_layout, money_layout, authentication_layout;
@@ -103,14 +103,18 @@ public class UserInfo extends AppCompatActivity {
     public void changeInfo(final int id) {
         View view = getLayoutInflater().inflate(R.layout.dialog_layout,null);
         final EditText editText = view.findViewById(R.id.et_content);
+        editText.setBackgroundColor(Color.rgb(245,245,245));
         AlertDialog alertDialog = new AlertDialog.Builder(this)
-                .setTitle("输入密码")
+                .setTitle("修改信息")
                 .setView(view)
                 .setPositiveButton("确定", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         TextView textView = null;
                         switch (id){
+                            case R.id.user_name_layout:
+                                textView = findViewById(R.id.user_name);
+                                break;
                             case R.id.user_email_layout:
                                 textView = findViewById(R.id.user_email);
                                 break;
